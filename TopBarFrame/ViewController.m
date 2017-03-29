@@ -10,10 +10,10 @@
 #import "JMTopTableView.h"
 #import "JMBottomCell.h"
 #import "JMBottomView.h"
-#import "TopBarModel.h"
-#import "BottomModel.h"
+#import "JMTopBarModel.h"
+#import "JMBottomModel.h"
 
-@interface ViewController ()<JMBottomViewDataSourceDelegate, JMBottomViewDelegate>
+@interface ViewController ()
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
@@ -33,7 +33,7 @@
     NSMutableArray *models = [NSMutableArray array];
     for (int i = 0; i < 7; i++) {
         
-        TopBarModel *model = [[TopBarModel alloc] init];
+        JMTopBarModel *model = [[JMTopBarModel alloc] init];
         model.title = @"画笔";
         model.column = 1;
         NSMutableArray *bModels = [NSMutableArray array];
@@ -41,7 +41,7 @@
         NSLog(@"%ld", number);
         for (int j = 0; j < number; j ++) {
             
-            BottomModel *bModel = [[BottomModel alloc] init];
+            JMBottomModel *bModel = [[JMBottomModel alloc] init];
             bModel.title = @"直线";
             bModel.isSelect = NO;
             bModel.image = @"more";

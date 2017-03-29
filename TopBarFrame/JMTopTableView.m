@@ -10,7 +10,9 @@
 #import "JMBottomCell.h"
 #import "UIView+Extension.h"
 #import "JMBottomView.h"
-#import "TopBarModel.h"
+#import "JMTopBarModel.h"
+#import "JMBottomModel.h"
+#import "JMGestureButton.h"
 
 #define JMColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define JMRandomColor JMColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
@@ -20,31 +22,16 @@
 
 @interface JMTopTableView()<JMBottomViewDataSourceDelegate, JMBottomViewDelegate>
 @property (nonatomic, assign) NSInteger section;
-@property (nonatomic, strong) JMBottomView *bottom;
 @end
 
 @implementation JMTopTableView
-
-- (JMBottomView *)bottom
-{
-    if (!_bottom) {
-        
-        self.bottom = [[JMBottomView alloc] initWithFrame:CGRectMake(0, self.superview.height, self.superview.width, 44)];
-        _bottom.backgroundColor = [UIColor greenColor];
-        _bottom.dataSource = self;
-        _bottom.delegate = self;
-        [self.superview addSubview:_bottom];
-    }
-    
-    return _bottom;
-}
 
 - (void)setDataSource:(NSMutableArray *)dataSource
 {
     _dataSource = dataSource;
     
     int i = 0;
-    for (TopBarModel *model in dataSource) {
+    for (JMTopBarModel *model in dataSource) {
         
         UIButton *btn = [UIButton buttonWithType:(UIButtonTypeSystem)];
         [btn setTitle:model.title forState:(UIControlStateNormal)];
@@ -59,63 +46,49 @@
 - (void)topBarAction:(UIButton *)sender
 {
     self.section = sender.tag-topBarTag;
-    [self showBottomView:self.section];
-    [self.bottom reloadData];
+    JMGestureButton *gesture = [JMGestureButton creatGestureButton];
+    JMBottomView *bottom = [[JMBottomView alloc] initWithFrame:CGRectMake(0, self.superview.height, self.superview.width, 44)];
+    [UIView animateWithDuration:0.1 animations:^{bottom.frame = CGRectMake(0, self.superview.height-44, self.superview.width, 44);}];
+    // bottom.backgroundColor = [UIColor greenColor];
+    bottom.dataSource = self;
+    bottom.delegate = self;
+    bottom.section = self.section;
+    [gesture addSubview:bottom];
 }
 
 #pragma mark -- TopBarDataSourceDelegate
 - (NSUInteger)numberOfRows
 {
-    TopBarModel *tModel = self.dataSource[self.section];
-    NSLog(@"count %ld", tModel.models.count);
+    JMTopBarModel *tModel = self.dataSource[self.section];
     return tModel.models.count;
 }
 
 - (NSUInteger)numberOfColumn
 {
-    TopBarModel *tModel = self.dataSource[self.section];
+    JMTopBarModel *tModel = self.dataSource[self.section];
     return tModel.column;
 }
 
 // 返回cell
 - (JMBottomCell *)tableView:(JMBottomView *)tableView index:(NSInteger)index
 {
+    JMBottomModel *bModel = [self.dataSource[self.section] models][index];
     JMBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bottom"];
     if (!cell) {cell = [[JMBottomCell alloc] init];}
-    cell.backgroundColor = JMRandomColor;
+    
+    cell.isCellSelect = bModel.isSelect;
+    cell.cellImage = bModel.image;
+    cell.cellTitle = bModel.title;
+    cell.cellTintColor = JMColor(90, 200, 93);
+    
     return cell;
 }
 
 #pragma mark -- TopBarDelegate
 - (void)tableView:(JMBottomView *)tableView didSelectRowAtIndex:(NSInteger)index
 {
-    NSLog(@"选中第%ld--%ld", index, tableView.section);
-}
-
-#pragma mark -- JMGestureButtonDelegate
-- (void)showBottomView:(NSInteger)section
-{
-    UIButton *gesture = [UIButton buttonWithType:(UIButtonTypeSystem)];
-    gesture.frame = CGRectMake(0, CGRectGetMinY(self.bounds), self.width, self.superview.height-44);
-    gesture.backgroundColor = [UIColor clearColor];
-    [gesture addTarget:self action:@selector(rem_GestureBtn:) forControlEvents:(UIControlEventTouchUpInside)];
-    [self.superview addSubview:gesture];
-    
-    [UIView animateWithDuration:0.2 animations:^{
-        
-        for (UIView *view in self.bottom.subviews) {[view removeFromSuperview];}
-        self.bottom.frame = CGRectMake(0, self.superview.height-44, self.superview.width, 44);
-        self.bottom.section = section;
-    }];
-}
-
-- (void)rem_GestureBtn:(UIButton *)sender
-{
-    [UIView animateWithDuration:0.2 animations:^{
-        
-        [sender removeFromSuperview];
-        self.bottom.frame = CGRectMake(0, self.superview.height, self.superview.width, 44);
-    }];
+    JMBottomModel *bModel = [self.dataSource[self.section] models][index];
+    bModel.isSelect = !bModel.isSelect;
 }
 
 - (void)layoutSubviews

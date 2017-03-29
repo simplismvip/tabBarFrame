@@ -7,11 +7,14 @@
 //
 
 #import "JMBottomCell.h"
+#define JMColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
 @implementation JMBottomCell
 
 - (id)initWithFrame:(CGRect)frame{
+    
     if (self=[super initWithFrame:frame]) {
+        
         [self commonInit];
     }
     return self;
@@ -39,6 +42,38 @@
     CGFloat imageH = contentRect.size.height * 0.7;
     return CGRectMake(0, 0, imageW, imageH);
 }
+
+- (void)setIsCellSelect:(BOOL)isCellSelect
+{
+    _isCellSelect = isCellSelect;
+    if (isCellSelect) {
+        
+        self.backgroundColor = JMColor(205, 205, 205);
+    }else{
+        self.backgroundColor = JMColor(245, 245, 245);
+    }
+    NSLog(@"%d", isCellSelect);
+}
+
+- (void)setCellImage:(NSString *)cellImage
+{
+    _cellImage = cellImage;
+    [self setImage:[[UIImage imageNamed:cellImage] imageWithRenderingMode:(UIImageRenderingModeAlwaysTemplate)] forState:0];
+}
+
+- (void)setCellTitle:(NSString *)cellTitle
+{
+    _cellTitle = cellTitle;
+    [self setTitle:cellTitle forState:0];
+}
+
+- (void)setCellTintColor:(UIColor *)cellTintColor
+{
+    _cellTintColor = cellTintColor;
+    [self setTitleColor:JMColor(90, 200, 93) forState:0];
+    [self setTintColor:JMColor(90, 200, 93)];
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -11,7 +11,8 @@
 		043FA3561E8A621F0068BA8B /* JMBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FA3551E8A621F0068BA8B /* JMBottomCell.m */; };
 		043FA3591E8A74990068BA8B /* JMGestureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FA3581E8A74990068BA8B /* JMGestureButton.m */; };
 		043FA35C1E8A75CC0068BA8B /* JMBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FA35B1E8A75CC0068BA8B /* JMBottomView.m */; };
-		043FA35F1E8B6F3F0068BA8B /* BottomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FA35E1E8B6F3F0068BA8B /* BottomModel.m */; };
+		043FA3621E8BB6480068BA8B /* JMTopBarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FA3611E8BB6480068BA8B /* JMTopBarModel.m */; };
+		043FA3651E8BB6530068BA8B /* JMBottomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FA3641E8BB6530068BA8B /* JMBottomModel.m */; };
 		048D3DD61E65142200D8B912 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D3DD51E65142200D8B912 /* main.m */; };
 		048D3DD91E65142200D8B912 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D3DD81E65142200D8B912 /* AppDelegate.m */; };
 		048D3DDC1E65142200D8B912 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D3DDB1E65142200D8B912 /* ViewController.m */; };
@@ -19,8 +20,6 @@
 		048D3DE11E65142200D8B912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048D3DE01E65142200D8B912 /* Assets.xcassets */; };
 		048D3DE41E65142200D8B912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048D3DE21E65142200D8B912 /* LaunchScreen.storyboard */; };
 		048D3DEF1E65142300D8B912 /* TopBarFrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D3DEE1E65142300D8B912 /* TopBarFrameTests.m */; };
-		048D3E011E651D2600D8B912 /* TopBarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D3E001E651D2600D8B912 /* TopBarModel.m */; };
-		048D3E041E6520B900D8B912 /* JMBaseBottomTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D3E031E6520B900D8B912 /* JMBaseBottomTool.m */; };
 		048D3E071E65217D00D8B912 /* JMButtom.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D3E061E65217D00D8B912 /* JMButtom.m */; };
 		048D3E0A1E65223B00D8B912 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D3E091E65223B00D8B912 /* UIView+Extension.m */; };
 /* End PBXBuildFile section */
@@ -44,8 +43,10 @@
 		043FA3581E8A74990068BA8B /* JMGestureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMGestureButton.m; sourceTree = "<group>"; };
 		043FA35A1E8A75CC0068BA8B /* JMBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMBottomView.h; sourceTree = "<group>"; };
 		043FA35B1E8A75CC0068BA8B /* JMBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMBottomView.m; sourceTree = "<group>"; };
-		043FA35D1E8B6F3F0068BA8B /* BottomModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomModel.h; sourceTree = "<group>"; };
-		043FA35E1E8B6F3F0068BA8B /* BottomModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomModel.m; sourceTree = "<group>"; };
+		043FA3601E8BB6480068BA8B /* JMTopBarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMTopBarModel.h; sourceTree = "<group>"; };
+		043FA3611E8BB6480068BA8B /* JMTopBarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMTopBarModel.m; sourceTree = "<group>"; };
+		043FA3631E8BB6530068BA8B /* JMBottomModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMBottomModel.h; sourceTree = "<group>"; };
+		043FA3641E8BB6530068BA8B /* JMBottomModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMBottomModel.m; sourceTree = "<group>"; };
 		048D3DD11E65142200D8B912 /* TopBarFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopBarFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048D3DD51E65142200D8B912 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		048D3DD71E65142200D8B912 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,10 +60,6 @@
 		048D3DEA1E65142300D8B912 /* TopBarFrameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopBarFrameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		048D3DEE1E65142300D8B912 /* TopBarFrameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopBarFrameTests.m; sourceTree = "<group>"; };
 		048D3DF01E65142300D8B912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		048D3DFF1E651D2600D8B912 /* TopBarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarModel.h; sourceTree = "<group>"; };
-		048D3E001E651D2600D8B912 /* TopBarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarModel.m; sourceTree = "<group>"; };
-		048D3E021E6520B900D8B912 /* JMBaseBottomTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMBaseBottomTool.h; sourceTree = "<group>"; };
-		048D3E031E6520B900D8B912 /* JMBaseBottomTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMBaseBottomTool.m; sourceTree = "<group>"; };
 		048D3E051E65217D00D8B912 /* JMButtom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMButtom.h; sourceTree = "<group>"; };
 		048D3E061E65217D00D8B912 /* JMButtom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMButtom.m; sourceTree = "<group>"; };
 		048D3E081E65223B00D8B912 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -117,10 +114,10 @@
 				043FA35B1E8A75CC0068BA8B /* JMBottomView.m */,
 				043FA3541E8A621F0068BA8B /* JMBottomCell.h */,
 				043FA3551E8A621F0068BA8B /* JMBottomCell.m */,
-				048D3DFF1E651D2600D8B912 /* TopBarModel.h */,
-				048D3E001E651D2600D8B912 /* TopBarModel.m */,
-				043FA35D1E8B6F3F0068BA8B /* BottomModel.h */,
-				043FA35E1E8B6F3F0068BA8B /* BottomModel.m */,
+				043FA3601E8BB6480068BA8B /* JMTopBarModel.h */,
+				043FA3611E8BB6480068BA8B /* JMTopBarModel.m */,
+				043FA3631E8BB6530068BA8B /* JMBottomModel.h */,
+				043FA3641E8BB6530068BA8B /* JMBottomModel.m */,
 				048D3DDD1E65142200D8B912 /* Main.storyboard */,
 				048D3DE01E65142200D8B912 /* Assets.xcassets */,
 				048D3DE21E65142200D8B912 /* LaunchScreen.storyboard */,
@@ -152,8 +149,6 @@
 			children = (
 				043FA3571E8A74990068BA8B /* JMGestureButton.h */,
 				043FA3581E8A74990068BA8B /* JMGestureButton.m */,
-				048D3E021E6520B900D8B912 /* JMBaseBottomTool.h */,
-				048D3E031E6520B900D8B912 /* JMBaseBottomTool.m */,
 				048D3E051E65217D00D8B912 /* JMButtom.h */,
 				048D3E061E65217D00D8B912 /* JMButtom.m */,
 				048D3E081E65223B00D8B912 /* UIView+Extension.h */,
@@ -270,16 +265,15 @@
 			files = (
 				048D3E0A1E65223B00D8B912 /* UIView+Extension.m in Sources */,
 				043FA3561E8A621F0068BA8B /* JMBottomCell.m in Sources */,
-				043FA35F1E8B6F3F0068BA8B /* BottomModel.m in Sources */,
 				043FA3531E8A62110068BA8B /* JMTopTableView.m in Sources */,
+				043FA3621E8BB6480068BA8B /* JMTopBarModel.m in Sources */,
 				043FA35C1E8A75CC0068BA8B /* JMBottomView.m in Sources */,
-				048D3E041E6520B900D8B912 /* JMBaseBottomTool.m in Sources */,
 				048D3DDC1E65142200D8B912 /* ViewController.m in Sources */,
-				048D3E011E651D2600D8B912 /* TopBarModel.m in Sources */,
 				048D3DD91E65142200D8B912 /* AppDelegate.m in Sources */,
 				048D3DD61E65142200D8B912 /* main.m in Sources */,
 				043FA3591E8A74990068BA8B /* JMGestureButton.m in Sources */,
 				048D3E071E65217D00D8B912 /* JMButtom.m in Sources */,
+				043FA3651E8BB6530068BA8B /* JMBottomModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

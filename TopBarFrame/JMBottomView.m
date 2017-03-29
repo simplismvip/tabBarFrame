@@ -61,6 +61,8 @@
 
 - (void)reloadData
 {
+    [self.frameArr removeAllObjects];
+    
     // 每个分区cell个数
     NSUInteger numberOfCell = [self.dataSource numberOfRows];
     
@@ -68,7 +70,7 @@
     NSInteger cellRow = [self.dataSource numberOfColumn];
     
     // cell行数, 这里有个小小注意点, 这里需要进位
-    NSInteger cellColumn = numberOfCell/cellRow+1;
+    NSInteger cellColumn = numberOfCell/cellRow;
     
     CGFloat w = kW/cellColumn;
     CGFloat h = 44.0;
@@ -126,12 +128,10 @@
         JMBottomCell *cell = self.reuserCell[@(i)];
         
         if (cell == nil) {
-            
+            NSLog(@"selectCell = %d", i);
             cell = [self.dataSource tableView:self index:i];
-            cell.tag = i+topBarTag;
             [cell addTarget:self action:@selector(select:) forControlEvents:(UIControlEventTouchUpInside)];
             cell.frame = cellFrame;
-            
             [self addSubview:cell];
             
             // 添加cell到字典中
@@ -144,6 +144,7 @@
             // 放进缓存池
             [self.dequeSet addObject:cell];
         }
+        cell.tag = i+topBarTag;
     }
 }
 

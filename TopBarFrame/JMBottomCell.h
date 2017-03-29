@@ -11,4 +11,8 @@
 @interface JMBottomCell : UIButton
 @property (nonatomic, copy) NSString *indetifiel;
 @property (nonatomic, assign) NSInteger index;
+@property (nonatomic, assign) BOOL isCellSelect;
+@property (nonatomic, copy) NSString *cellTitle;
+@property (nonatomic, copy) NSString *cellImage;
+@property (nonatomic, strong) UIColor *cellTintColor;
 @end

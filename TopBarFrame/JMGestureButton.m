@@ -23,22 +23,19 @@
 
 - (void)rem_GestureBtn:(JMGestureButton *)sender
 {
-    if ([self.delegate respondsToSelector:@selector(didRemove)]) {[self.delegate didRemove];}
-    [sender removeFromSuperview];
-    
-//    for (UIView *v in self.subviews) {
-//        
-//        [UIView animateWithDuration:0.2 animations:^{
-//            
-//            v.frame = CGRectMake(v.x, self.height, v.width, v.height);
-//            
-//        } completion:^(BOOL finished) {
-//            
-//            [sender removeFromSuperview];
-//            
-//            if ([self.delegate respondsToSelector:@selector(didRemove)]) {[self.delegate didRemove];}
-//        }];
-//    }
+    for (UIView *v in self.subviews) {
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            
+            v.frame = CGRectMake(v.x, self.height, v.width, v.height);
+            
+        } completion:^(BOOL finished) {
+            
+            [sender removeFromSuperview];
+            
+            if ([self.delegate respondsToSelector:@selector(didRemove)]) {[self.delegate didRemove];}
+        }];
+    }
 }
 
 @end
